@@ -1,0 +1,144 @@
+.SkillsSection {
+    background-color: var(--Secondary_Color);
+    padding: 6rem 8rem;
+    width: 100%;
+}
+
+.SkillsHeader {
+    margin-bottom: 3.5rem;
+}
+
+.SkillsSection .SectionTitle {
+    font-family: var(--Primary_Font);
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+}
+
+.SkillsSection .SectionSubtitle {
+    color: var(--Text_Gray);
+    font-size: 1.1rem;
+}
+
+/* Skills Layout Grid */
+.SkillsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+/* 🌟 Cleaned up merged card design */
+.SkillCard {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 2.5rem 2rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    z-index: 1;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Red top accent glow line on hover */
+.SkillCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--Accent_Color);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+    box-shadow: 0 2px 10px var(--Accent_Color);
+    z-index: 3;
+}
+
+/* 🌟 The Dark Filter Overlay over the image background */
+.SkillCard::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 10, 0.88);
+    /* Heavy tint so text is readable */
+    z-index: 1;
+    transition: background 0.4s ease;
+}
+
+/* Card Hover actions */
+.SkillCard:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 51, 51, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+.SkillCard:hover::before {
+    transform: scaleX(1);
+}
+
+/* 🌟 Brightens image background slightly on hover by clearing some tint */
+.SkillCard:hover::after {
+    background: rgba(10, 10, 10, 0.78);
+}
+
+/* Ensures content layers sit strictly on top of filter layers */
+.SkillCardContent {
+    position: relative;
+    z-index: 2;
+}
+
+/* Inner Details styling */
+.SkillTypeBadge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--Text_Gray);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.SkillCard:hover .SkillTypeBadge {
+    background: rgba(255, 51, 51, 0.15);
+    border-color: rgba(255, 51, 51, 0.4);
+    color: #fff;
+}
+
+.SkillName {
+    font-family: var(--Secondary_Font);
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #fff;
+    margin-bottom: 0.8rem;
+}
+
+.SkillDivider {
+    width: 40px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-bottom: 1.2rem;
+    transition: width 0.3s ease, background 0.3s ease;
+}
+
+.SkillCard:hover .SkillDivider {
+    width: 80px;
+    background: var(--Accent_Color);
+}
+
+.SkillDesc {
+    font-size: 0.92rem;
+    color: #b3b3b3;
+    line-height: 1.6;
+}

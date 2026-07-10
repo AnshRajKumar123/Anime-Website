@@ -1,0 +1,359 @@
+:root {
+    --Accent_Color: #ff3333;
+    --Text_Light: #ffffff;
+    --Text_Gray: #aaaaaa;
+}
+
+.HeroSection {
+    height: calc(100vh - 90px);
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+/* Background & Overlays */
+.BigImageBox {
+    position: absolute;
+    z-index: -2;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+}
+
+.BigImageBox img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: brightness(20%) contrast(120%);
+}
+
+.HeroOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.85) 30%, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0.95) 100%),
+        linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent 60%);
+    z-index: -1;
+}
+
+/* Subtle background overlay textures to break up empty dark spots */
+.DarkEnergyParticles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgba(255, 51, 51, 0.04) 1px, transparent 0);
+    background-size: 24px 24px;
+    opacity: 0.7;
+    z-index: -1;
+}
+
+/* Layout container */
+.Image_Detail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 8rem;
+    z-index: 5;
+}
+
+/* Typography & Left Side Content */
+.SecondLine {
+    max-width: 550px;
+    color: var(--Text_Light);
+}
+
+.SubTitle {
+    font-size: 0.85rem;
+    letter-spacing: 5px;
+    color: var(--Accent_Color);
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 51, 51, 0.6);
+}
+
+.SecondLine h1 {
+    font-family: var(--Primary_Font), sans-serif;
+    font-size: 5rem;
+    /* Larger and cleaner tracking lines */
+    margin: 12px 0;
+    line-height: 1.1;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #ffffff 40%, #555555 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 2px;
+}
+
+.SecondLine p {
+    color: var(--Text_Gray);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+}
+
+/* Action Buttons */
+.HeroButtons {
+    display: flex;
+    gap: 15px;
+}
+
+.BtnPrimary,
+.BtnSecondary {
+    padding: 14px 34px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border-radius: 4px;
+}
+
+.BtnPrimary {
+    background: var(--Accent_Color);
+    border: 2px solid var(--Accent_Color);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(255, 51, 51, 0.35);
+}
+
+.BtnPrimary:hover {
+    background: transparent;
+    color: var(--Accent_Color);
+    box-shadow: 0 4px 30px rgba(255, 51, 51, 0.6);
+    transform: translateY(-2px);
+}
+
+.BtnSecondary {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    color: #fff;
+}
+
+.BtnSecondary:hover {
+    background: #fff;
+    border-color: #fff;
+    color: #000;
+    transform: translateY(-2px);
+}
+
+/* Right Side Image - Character Frame Overhaul */
+.FirstLine {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    animation: floatAnimation 6s ease-in-out infinite;
+    padding-right: 4rem;
+}
+
+.MainImg {
+    width: 26vw;
+    min-width: 340px;
+    object-fit: contain;
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    filter: drop-shadow(0 0 25px rgba(255, 51, 51, 0.25));
+    position: relative;
+    z-index: 3;
+}
+
+/* 🌟 Spinning Ancient Sigil Aura Background Element */
+.AncientAuraRing {
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border: 2px dashed rgba(255, 51, 51, 0.15);
+    border-radius: 50%;
+    z-index: 1;
+    animation: rotateRing 24s linear infinite;
+    box-shadow: inset 0 0 40px rgba(255, 51, 51, 0.05), 0 0 40px rgba(255, 51, 51, 0.05);
+}
+
+.AncientAuraRing::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    height: 320px;
+    border: 1px double rgba(255, 51, 51, 0.25);
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(255, 51, 51, 0.1);
+}
+
+/* 🌟 Floating Interface Data Tracker Box */
+.CharacterStatWidget {
+    position: absolute;
+    bottom: 40px;
+    right: -20px;
+    background: rgba(10, 10, 10, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 1.2rem 1.5rem;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 220px;
+    z-index: 4;
+    border-left: 3px solid var(--Accent_Color);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.WidgetRow {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.WidgetLabel {
+    font-size: 0.65rem;
+    font-weight: bold;
+    color: var(--Text_Gray);
+    letter-spacing: 1px;
+}
+
+.WidgetValue {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.5px;
+}
+
+.text-red {
+    color: var(--Accent_Color) !important;
+    text-shadow: 0 0 8px rgba(255, 51, 51, 0.4);
+}
+
+/* Animations */
+@keyframes floatAnimation {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes rotateRing {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Small Fixed Icon */
+.Donghua_Banner {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
+.Donghua_Banner:hover {
+    opacity: 1;
+}
+
+.Donghua_Banner img {
+    filter: invert(100%);
+    width: 45px;
+}
+
+/* 🌟 Lineage Wrapper gives a clean vertical anchor bar next to the titles 🌟 */
+.LineageWrapper {
+    position: relative;
+    padding-left: 20px;
+    border-left: 2px solid rgba(255, 51, 51, 0.15);
+    margin-bottom: 2rem;
+    transition: border-color 0.4s ease;
+}
+
+.SecondLine:hover .LineageWrapper {
+    border-color: var(--Accent_Color);
+}
+
+.SecondLine h1 {
+    font-family: var(--Primary_Font), sans-serif;
+    font-size: 5rem;
+    margin: 8px 0;
+    line-height: 1.1;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #ffffff 40%, #777777 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 2px;
+}
+
+.HeroDescription {
+    color: var(--Text_Gray);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 0 !important;
+    /* Managed cleanly by parent block containers now */
+}
+
+/* 🌟 Quick Stats Matrix Configuration 🌟 */
+.HeroQuickStats {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 2.5rem;
+    padding-left: 20px;
+}
+
+.StatNode {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    position: relative;
+}
+
+/* Dividing line between the stat nodes */
+.StatNode:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -15px;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.NodeCount {
+    font-size: 1.8rem;
+    font-weight: 800;
+    font-family: var(--Font1);
+    color: #ffffff;
+    line-height: 1;
+    transition: color 0.3s ease;
+}
+
+.StatNode:hover .NodeCount {
+    color: var(--Accent_Color);
+    text-shadow: 0 0 10px rgba(255, 51, 51, 0.3);
+}
+
+.NodeTitle {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--Text_Gray);
+    letter-spacing: 1px;
+}

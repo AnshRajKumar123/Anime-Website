@@ -1,0 +1,123 @@
+.WeaponsSection {
+    background-color: var(--Secondary_Color);
+    padding: 6rem 8rem;
+    width: 100%;
+}
+
+.WeaponsHeader .SectionTitle {
+    font-family: var(--Primary_Font);
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+}
+
+.WeaponsHeader .SectionSubtitle {
+    color: var(--Text_Gray);
+    font-size: 1.1rem;
+    margin-bottom: 3.5rem;
+}
+
+.WeaponsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.WeaponCard {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.WeaponCard:hover {
+    border-color: var(--Accent_Color);
+    background: rgba(255, 51, 51, 0.02);
+    transform: scale(1.02);
+}
+
+.WeaponHeaderRow {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.WeaponIndex {
+    color: var(--Accent_Color);
+}
+
+.WeaponType {
+    color: var(--Text_Gray);
+    text-transform: uppercase;
+}
+
+.WeaponCard h3 {
+    color: #fff;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.WeaponCard p {
+    color: #aaaaaa;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.WeaponsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.WeaponCard {
+    background: #121212;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+    /* Ensures image corners match card border radius */
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.WeaponCard:hover {
+    transform: translateY(-8px);
+    border-color: var(--Accent_Color);
+    box-shadow: 0 10px 25px rgba(255, 51, 51, 0.15);
+}
+
+/* 🌟 Image Styling for the Artifacts */
+.WeaponImageContainer {
+    width: 100%;
+    height: 180px;
+    position: relative;
+    overflow: hidden;
+}
+
+.WeaponCardImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.WeaponCard:hover .WeaponCardImg {
+    transform: scale(1.1);
+    /* Subtle zoom effect on card hover */
+}
+
+/* Dark gradient mask on the image so it blends smoothly down into the text content area */
+.CardImgOverlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, #121212, transparent);
+}
+
+.WeaponContent {
+    padding: 1.5rem;
+}

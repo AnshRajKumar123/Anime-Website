@@ -1,0 +1,388 @@
+.LoreContainer {
+    background-color: var(--Secondary_Color);
+    padding: 2rem 8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 8rem;
+}
+
+.LoreSectionBlock {
+    width: 100%;
+}
+
+.SectionTitle {
+    font-family: var(--Primary_Font);
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+}
+
+.SectionSubtitle {
+    color: var(--Text_Gray);
+    font-size: 1.1rem;
+    margin-bottom: 3.5rem;
+}
+
+/* Steps Wrapper & Dropdown Container Layout */
+.StepsWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.StepDropdown {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.StepDropdown:hover {
+    border-color: rgba(255, 51, 51, 0.3);
+}
+
+.StepDropdown.isOpen {
+    border-color: var(--Accent_Color);
+    box-shadow: 0 0 20px rgba(255, 51, 51, 0.05);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* The Clickable Header Button */
+.DropdownHeader {
+    width: 100%;
+    padding: 1.8rem 2rem;
+    background: transparent;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    outline: none;
+    text-align: left;
+}
+
+.StepTitleText {
+    font-family: var(--Secondary_Font);
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #fff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.StepDropdown:hover .StepTitleText,
+.StepDropdown.isOpen .StepTitleText {
+    color: var(--Accent_Color);
+}
+
+.DropdownArrow {
+    color: var(--Text_Gray);
+    font-size: 1rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.StepDropdown.isOpen .DropdownArrow {
+    color: var(--Accent_Color);
+    text-shadow: 0 0 8px var(--Accent_Color);
+}
+
+/* Dynamic Hidden/Visible State handling */
+.DropdownBody {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
+    padding: 0 2rem;
+}
+
+.StepDropdown.isOpen .DropdownBody {
+    max-height: 2000px;
+    /* Big enough to safely frame inner grid calculations */
+    padding-bottom: 2.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    padding-top: 2rem;
+}
+
+/* Inner Cultivation Grid System */
+.CultivationGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.CultivationCard {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 1.8rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.CultivationCard:hover {
+    border-color: var(--Accent_Color);
+    background: rgba(255, 51, 51, 0.02);
+    transform: translateY(-3px);
+}
+
+.StageNumber {
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: var(--Accent_Color);
+    margin-bottom: 0.6rem;
+}
+
+.CultivationCard h3 {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+    color: #fff;
+}
+
+.CultivationCard p {
+    font-size: 0.88rem;
+    color: var(--Text_Gray);
+    line-height: 1.5;
+}
+
+/* Header Right Additions */
+.HeaderInteractiveGroup {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.RealmCount {
+    font-size: 0.8rem;
+    color: var(--Text_Gray);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+}
+
+.StepDropdown.isOpen .RealmCount {
+    color: var(--Accent_Color);
+    border-color: rgba(255, 51, 51, 0.3);
+    background: rgba(255, 51, 51, 0.05);
+}
+
+/* 🌟 Grid Container with continuous connecting track */
+.CultivationGridContainer {
+    position: relative;
+    width: 100%;
+}
+
+/* Inner Grid Layout */
+.CultivationGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    position: relative;
+    z-index: 2;
+}
+
+/* 🌟 Cultivation Card Design Overhaul */
+.CultivationCard {
+    background: linear-gradient(135deg, rgba(15, 15, 15, 0.9) 0%, rgba(5, 5, 5, 0.95) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 2.2rem 1.8rem;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.CardTopRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+}
+
+.StageNumber {
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    color: var(--Accent_Color);
+    margin-bottom: 0;
+    /* Clear previous margin overrides */
+    text-shadow: 0 0 8px rgba(255, 51, 51, 0.3);
+}
+
+/* Custom Realm Tier Badges */
+.RealmTypeBadge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #ffffff90;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 3px 8px;
+    border-radius: 3px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.CultivationCard h3 {
+    font-family: var(--Secondary_Font);
+    font-weight: 700;
+    font-size: 1.35rem;
+    margin-bottom: 8px;
+    color: #fff;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.CultivationCard p {
+    font-size: 0.9rem;
+    color: #999999;
+    line-height: 1.6;
+}
+
+/* 🌟 Radical Breakthrough Hover States */
+.CultivationCard:hover {
+    border-color: var(--Accent_Color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(255, 51, 51, 0.1);
+}
+
+.CultivationCard:hover h3 {
+    color: var(--Accent_Color);
+}
+
+.CultivationCard:hover .RealmTypeBadge {
+    color: #fff;
+    background: rgba(255, 51, 51, 0.15);
+    border-color: rgba(255, 51, 51, 0.4);
+}
+
+/* 🌟 Neon Aura effect glowing inside background from the bottom right corner */
+.CardAuraGlow {
+    position: absolute;
+    bottom: -40px;
+    right: -40px;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(255, 51, 51, 0.12) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: -1;
+    transition: transform 0.5s ease, background 0.5s ease;
+}
+
+.CultivationCard:hover .CardAuraGlow {
+    transform: scale(1.6);
+    background: radial-gradient(circle, rgba(255, 51, 51, 0.22) 0%, transparent 70%);
+}
+
+/* Swapped flexbox out for a clean, side-by-side or stacked grid arrangement */
+.RelationshipGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+}
+
+.RelationCard {
+    display: flex;
+    background: #111111;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.3s ease;
+}
+
+.RelationCard:hover {
+    transform: translateY(-5px);
+    border-color: var(--Accent_Color);
+    box-shadow: 0 10px 30px rgba(255, 51, 51, 0.08);
+}
+
+/* Portrait container on the left */
+.RelationImageWrapper {
+    width: 140px;
+    min-width: 140px;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    background: #000;
+}
+
+.RelationAvatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.RelationCard:hover .RelationAvatar {
+    transform: scale(1.08);
+}
+
+/* Vertical and horizontal gradient fade to blend image smoothly into the text area */
+.RelationImgOverlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent 60%, #111111 100%);
+}
+
+/* Content Area on the right */
+.RelationContent {
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.RelationHeader {
+    display: flex;
+    flex-direction: column;
+    /* Stack name and tag elegantly */
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.RelationHeader h3 {
+    font-size: 1.4rem;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.RelationTag {
+    background: rgba(255, 51, 51, 0.1);
+    border: 1px solid rgba(255, 51, 51, 0.25);
+    color: var(--Accent_Color);
+    padding: 3px 10px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.RelationBondText {
+    color: #b3b3b3;
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+/* Responsive fix for smaller viewport screens */
+@media (max-width: 600px) {
+    .RelationCard {
+        flex-direction: column;
+    }
+
+    .RelationImageWrapper {
+        width: 100%;
+        height: 180px;
+    }
+
+    .RelationImgOverlay {
+        background: linear-gradient(to top, #111111 20%, transparent 100%);
+    }
+}

@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Moon+Dance&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libertinus+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--Primary_Color);
+  font-family: var(--Secondary_Font);
+  text-decoration: none;
+}
+
+body {
+  background-color: var(--Secondary_Color);
+}
+
+:root {
+
+  --Primary_Font: "Moon Dance", cursive;
+  --Secondary_Font: "Quicksand", sans-serif;
+
+  --Font1: "Dancing Script", cursive;
+  --Font2: "Libertinus Sans", sans-serif;
+
+  --Primary_Color: #fff;
+  --Secondary_Color: #000;
+
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
