@@ -45,7 +45,7 @@ const Navbar = () => {
     return (
         <nav className='Navbar'>
             {/* Logo Group */}
-            <a href='#home' className="NameLogo" onClick={() => setActiveLink('#home')}>
+            <a href='/' className="NameLogo" onClick={() => setActiveLink('#home')}>
                 <span className="LogoBadge">RI</span>
                 <h1>Wang Ling</h1>
             </a>

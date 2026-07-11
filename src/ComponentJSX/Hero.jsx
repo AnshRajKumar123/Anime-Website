@@ -59,7 +59,7 @@ const Hero = () => {
                         </div>
                         <div className="WidgetRow">
                             <span className="WidgetLabel">CORE DOMAIN</span>
-                            <span className="WidgetValue">LIFE & DEATH</span>
+                            <span className="WidgetValue">CAUSE & EFFECT</span>
                         </div>
                         <div className="WidgetRow">
                             <span className="WidgetLabel">PRIMORDIAL ARTIFACT</span>
