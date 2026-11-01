@@ -91,12 +91,12 @@
     font-size: 5rem;
     margin: 8px 0;
     line-height: 1.1;
-    font-family: var(--Secondary_Font), sans-serif;
+    font-family: var(--Font1), sans-serif;
     text-transform: uppercase;
     background: linear-gradient(to right, #ffffff 40%, #777777 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    letter-spacing: 2px;
+    letter-spacing: -2px;
 }
 
 .HeroDescription {
