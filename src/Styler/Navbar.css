@@ -3,27 +3,29 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 8rem;
-    height: 90px; /* Slimmed down slightly to feel modern and tight */
+    height: 90px; 
     position: sticky;
     top: 0;
     z-index: 100;
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    
-    /* 🌟 Edge Border Glow: Adds a subtle crimson baseline boundary 🌟 */
     border-bottom: 1px solid rgba(255, 51, 51, 0.15);
     background: linear-gradient(to bottom, rgba(5, 5, 5, 0.85) 0%, rgba(0, 0, 0, 0.7) 100%);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    box-sizing: border-box;
 }
 
-/* Logo Styling */
+/* Logo Styling with left margin padding fix so it never sticks to the edge */
 .NameLogo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     user-select: none;
     cursor: pointer;
     position: relative;
+    text-decoration: none;
+    margin-left: 10px;
 }
 
 .LogoBadge {
@@ -40,7 +42,7 @@
 
 .NameLogo h1 {
     font-family: var(--Primary_Font);
-    font-size: 1.8rem; /* Brought down slightly for premium structural proportions */
+    font-size: 1.8rem;
     color: #ffffff;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -50,120 +52,141 @@
     -webkit-text-fill-color: transparent;
 }
 
-.NameLogo:hover h1 {
-    background: linear-gradient(to right, #ffffff, var(--Accent_Color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 20px rgba(255, 51, 51, 0.3);
-}
-
-/* Navigation Links Container */
+/* Bottom Navigation Links Container */
 .Nav_links {
     display: flex;
     align-items: center;
-    gap: 3.5rem;
+    justify-content: space-around;
+    width: 100%;
 }
 
 .Nav_links a {
     color: rgba(255, 255, 255, 0.6);
     font-family: var(--Secondary_Font);
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 600;
-    padding: 8px 4px;
+    padding: 6px 4px;
     position: relative;
     letter-spacing: 1px;
     text-transform: uppercase;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.3s ease;
 }
 
-/* 🌟 Redesigned Hover & Active Glow Indicator Sliders 🌟 */
-.Nav_links a::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: var(--Accent_Color);
-    box-shadow: 0 0 12px var(--Accent_Color), 0 0 4px var(--Accent_Color);
-    transition: width 0.3s ease, left 0.3s ease;
-}
-
-.Nav_links a:hover {
-    color: #ffffff;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-}
-
-.Nav_links a:hover::after,
-.Nav_links a.active::after {
-    width: 100%;
-    left: 0;
-}
-
+.Nav_links a:hover,
 .Nav_links a.active {
     color: var(--Accent_Color);
     text-shadow: 0 0 8px rgba(255, 51, 51, 0.4);
 }
 
-/* 🌟 Premium Action Button System 🌟 */
+/* Download Button Styling */
 .NavActions {
     display: flex;
     align-items: center;
+    margin-right: 10px;
 }
 
 .NavCtaBtn {
     position: relative;
-    padding: 10px 20px;
-    background: rgba(255, 51, 51, 0.05);
-    border: 1px solid rgba(255, 51, 51, 0.3);
-    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    background: rgba(255, 51, 51, 0.1);
+    border: 1px solid rgba(255, 51, 51, 0.5);
+    border-radius: 6px;
     color: #ffffff;
     font-family: var(--Secondary_Font);
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     overflow: hidden;
     cursor: pointer;
+    text-decoration: none;
+    box-sizing: border-box;
     transition: all 0.3s ease;
 }
 
-.NavCtaBtn span {
+.NavCtaBtn span, .NavCtaBtn svg {
     position: relative;
     z-index: 2;
+    color: #ffffff;
 }
 
-/* Background expansion layer triggered on hover */
 .BtnGlowLayer {
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 51, 51, 0.25), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 51, 51, 0.4), transparent);
     transition: left 0.5s ease;
     z-index: 1;
 }
 
 .NavCtaBtn:hover {
     border-color: var(--Accent_Color);
-    box-shadow: 0 0 15px rgba(255, 51, 51, 0.2);
-    transform: translateY(-1px);
+    background: rgba(255, 51, 51, 0.2);
+    box-shadow: 0 0 20px rgba(255, 51, 51, 0.4);
+    transform: translateY(-2px);
 }
 
 .NavCtaBtn:hover .BtnGlowLayer {
-    left: 100%; /* Shimmer flash sweep effect across button */
+    left: 100%;
 }
 
-/* Responsive adjustments for mid-sized viewport environments */
+/* Responsive Adjustments */
 @media (max-width: 1024px) {
     .Navbar {
-        padding: 0 4rem;
+        padding: 0 3rem;
     }
-    .Nav_links {
-        gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .Navbar {
+        padding: 0 1rem;
+        height: 75px;
     }
-    .NavActions {
-        display: none; /* Safely space-collapses side actions on compact windows */
+    .NameLogo h1 {
+        font-size: 1.4rem;
+    }
+    .LogoBadge {
+        font-size: 1rem;
+        left: -18px;
+    }
+}
+
+/* 📱 Mobile Bottom Sticky Navbar Dock Styles */
+.Navbar.BottomNavbar {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    height: 65px;
+    border-top: 1px solid rgba(255, 51, 51, 0.25);
+    border-bottom: none;
+    background: rgba(5, 5, 5, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    z-index: 1000;
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .Navbar.BottomNavbar {
+        display: flex;
+        padding: 0 0.5rem;
+        width: 100%;
+    }
+    .NavLinkText {
+        font-size: 10px;
+    }
+    body {
+        padding-bottom: 65px; /* Prevent content clipping behind bottom dock */
     }
 }

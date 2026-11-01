@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import '../Styler/LoreSections.css';
 import { CultivationLoreData, RelationshipData } from '../assets/assest';
+import { ChevronDown, ChevronUp, Layers, HeartHandshake, ShieldAlert } from 'lucide-react';
 
 const LoreSections = () => {
-    // Tracks which step dropdown is open. Default is 0 (First Step open initially)
     const [activeStep, setActiveStep] = useState(0);
 
     const toggleStep = (index) => {
-        // If the clicked step is already open, close it (set to null), otherwise open it
         setActiveStep(activeStep === index ? null : index);
     };
 
@@ -15,6 +14,7 @@ const LoreSections = () => {
         <div className="LoreContainer">
             {/* SECTION 1: CULTIVATION PATH */}
             <section className="LoreSectionBlock" id="cultivation">
+                <div className="HeaderTagPulse"><Layers size={16} /> Daoist Ascension</div>
                 <h2 className="SectionTitle">Cultivation Rules & Path</h2>
                 <p className="SectionSubtitle">
                     In the world of Renegade Immortal, cultivation is a brutal plunder of the heavens across distinct existential Steps. Click a step to unveil its realms.
@@ -26,21 +26,16 @@ const LoreSections = () => {
 
                         return (
                             <div className={`StepDropdown ${isOpen ? 'isOpen' : ''}`} key={stepIndex}>
-                                {/* Clickable Accordion Header */}
                                 <button className="DropdownHeader" onClick={() => toggleStep(stepIndex)}>
                                     <span className="StepTitleText">{step.stepName}</span>
                                     <div className="HeaderInteractiveGroup">
                                         <span className="RealmCount">{step.realms.length} Realms</span>
-                                        <span className="DropdownArrow">{isOpen ? '▲' : '▼'}</span>
+                                        <span className="DropdownArrow">{isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}</span>
                                     </div>
                                 </button>
 
-                                {/* Collapsible Body */}
                                 <div className="DropdownBody">
-                                    {/* 🌟 New Path Line Connection Effect */}
                                     <div className="CultivationGridContainer">
-                                        <div className="CultivationPathLine"></div>
-
                                         <div className="CultivationGrid">
                                             {step.realms.map((stage, stageIndex) => (
                                                 <div className="CultivationCard" key={stageIndex}>
@@ -48,7 +43,6 @@ const LoreSections = () => {
                                                         <div className="StageNumber">
                                                             S{stepIndex + 1} · {(stageIndex + 1).toString().padStart(2, '0')}
                                                         </div>
-                                                        {/* 🌟 Dynamic Lore Badge Type */}
                                                         <span className="RealmTypeBadge">{stage.type || "Dao Path"}</span>
                                                     </div>
                                                     <h3>{stage.level}</h3>
@@ -67,19 +61,18 @@ const LoreSections = () => {
 
             {/* SECTION 2: RELATIONSHIPS */}
             <section className="LoreSectionBlock" id="relationship">
+                <div className="HeaderTagPulse"><HeartHandshake size={16} /> Fates & Bonds</div>
                 <h2 className="SectionTitle">Wang Lin's Relationships</h2>
                 <p className="SectionSubtitle">A ruthless path walked mostly alone, yet shaped by key figures of fate.</p>
 
                 <div className="RelationshipGrid">
                     {RelationshipData.map((char, index) => (
                         <div className="RelationCard" key={index}>
-                            {/* Character Portrait Layer */}
                             <div className="RelationImageWrapper">
                                 <img src={char.image} alt={char.name} className="RelationAvatar" />
                                 <div className="RelationImgOverlay"></div>
                             </div>
 
-                            {/* Content Details */}
                             <div className="RelationContent">
                                 <div className="RelationHeader">
                                     <h3>{char.name}</h3>

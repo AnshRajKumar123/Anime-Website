@@ -2,6 +2,7 @@
     background-color: var(--Secondary_Color);
     padding: 6rem 8rem;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .SkillsHeader {
@@ -141,4 +142,19 @@
     font-size: 0.92rem;
     color: #b3b3b3;
     line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+    .SkillsSection {
+        padding: 4rem 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .SkillsSection {
+        padding: 3rem 1.2rem;
+    }
+    .SkillsSection .SectionTitle {
+        font-size: 2.2rem;
+    }
 }

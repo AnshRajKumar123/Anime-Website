@@ -5,20 +5,21 @@
 }
 
 .HeroSection {
-    height: calc(100vh - 90px);
-    width: 100vw;
+    min-height: calc(100vh - 90px);
+    width: 100%;
     position: relative;
     overflow: hidden;
     display: flex;
     align-items: center;
+    box-sizing: border-box;
 }
 
 /* Background & Overlays */
 .BigImageBox {
     position: absolute;
     z-index: -2;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     top: 0;
     left: 0;
 }
@@ -41,7 +42,6 @@
     z-index: -1;
 }
 
-/* Subtle background overlay textures to break up empty dark spots */
 .DarkEnergyParticles {
     position: absolute;
     top: 0;
@@ -60,14 +60,23 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 0 8rem;
+    padding: 3rem 8rem;
     z-index: 5;
+    box-sizing: border-box;
 }
 
 /* Typography & Left Side Content */
 .SecondLine {
     max-width: 550px;
     color: var(--Text_Light);
+}
+
+.LineageWrapper {
+    position: relative;
+    padding-left: 20px;
+    border-left: 2px solid rgba(255, 51, 51, 0.15);
+    margin-bottom: 2rem;
+    transition: border-color 0.4s ease;
 }
 
 .SubTitle {
@@ -79,222 +88,10 @@
 }
 
 .SecondLine h1 {
-    font-family: var(--Primary_Font), sans-serif;
-    font-size: 5rem;
-    /* Larger and cleaner tracking lines */
-    margin: 12px 0;
-    line-height: 1.1;
-    text-transform: uppercase;
-    background: linear-gradient(to right, #ffffff 40%, #555555 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: 2px;
-}
-
-.SecondLine p {
-    color: var(--Text_Gray);
-    font-size: 1.05rem;
-    line-height: 1.7;
-    margin-bottom: 2.5rem;
-}
-
-/* Action Buttons */
-.HeroButtons {
-    display: flex;
-    gap: 15px;
-}
-
-.BtnPrimary,
-.BtnSecondary {
-    padding: 14px 34px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-    border-radius: 4px;
-}
-
-.BtnPrimary {
-    background: var(--Accent_Color);
-    border: 2px solid var(--Accent_Color);
-    color: #fff;
-    box-shadow: 0 4px 20px rgba(255, 51, 51, 0.35);
-}
-
-.BtnPrimary:hover {
-    background: transparent;
-    color: var(--Accent_Color);
-    box-shadow: 0 4px 30px rgba(255, 51, 51, 0.6);
-    transform: translateY(-2px);
-}
-
-.BtnSecondary {
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, 0.4);
-    color: #fff;
-}
-
-.BtnSecondary:hover {
-    background: #fff;
-    border-color: #fff;
-    color: #000;
-    transform: translateY(-2px);
-}
-
-/* Right Side Image - Character Frame Overhaul */
-.FirstLine {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    animation: floatAnimation 6s ease-in-out infinite;
-    padding-right: 4rem;
-}
-
-.MainImg {
-    width: 26vw;
-    min-width: 340px;
-    object-fit: contain;
-    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-    filter: drop-shadow(0 0 25px rgba(255, 51, 51, 0.25));
-    position: relative;
-    z-index: 3;
-}
-
-/* 🌟 Spinning Ancient Sigil Aura Background Element */
-.AncientAuraRing {
-    position: absolute;
-    width: 420px;
-    height: 420px;
-    border: 2px dashed rgba(255, 51, 51, 0.15);
-    border-radius: 50%;
-    z-index: 1;
-    animation: rotateRing 24s linear infinite;
-    box-shadow: inset 0 0 40px rgba(255, 51, 51, 0.05), 0 0 40px rgba(255, 51, 51, 0.05);
-}
-
-.AncientAuraRing::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 320px;
-    height: 320px;
-    border: 1px double rgba(255, 51, 51, 0.25);
-    border-radius: 50%;
-    box-shadow: 0 0 30px rgba(255, 51, 51, 0.1);
-}
-
-/* 🌟 Floating Interface Data Tracker Box */
-.CharacterStatWidget {
-    position: absolute;
-    bottom: 40px;
-    right: -20px;
-    background: rgba(10, 10, 10, 0.75);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    padding: 1.2rem 1.5rem;
-    border-radius: 6px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    width: 220px;
-    z-index: 4;
-    border-left: 3px solid var(--Accent_Color);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-}
-
-.WidgetRow {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-}
-
-.WidgetLabel {
-    font-size: 0.65rem;
-    font-weight: bold;
-    color: var(--Text_Gray);
-    letter-spacing: 1px;
-}
-
-.WidgetValue {
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 0.5px;
-}
-
-.text-red {
-    color: var(--Accent_Color) !important;
-    text-shadow: 0 0 8px rgba(255, 51, 51, 0.4);
-}
-
-/* Animations */
-@keyframes floatAnimation {
-    0% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-15px);
-    }
-
-    100% {
-        transform: translateY(0px);
-    }
-}
-
-@keyframes rotateRing {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-/* Small Fixed Icon */
-.Donghua_Banner {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    opacity: 0.6;
-    transition: opacity 0.3s;
-}
-
-.Donghua_Banner:hover {
-    opacity: 1;
-}
-
-.Donghua_Banner img {
-    filter: invert(100%);
-    width: 45px;
-}
-
-/* 🌟 Lineage Wrapper gives a clean vertical anchor bar next to the titles 🌟 */
-.LineageWrapper {
-    position: relative;
-    padding-left: 20px;
-    border-left: 2px solid rgba(255, 51, 51, 0.15);
-    margin-bottom: 2rem;
-    transition: border-color 0.4s ease;
-}
-
-.SecondLine:hover .LineageWrapper {
-    border-color: var(--Accent_Color);
-}
-
-.SecondLine h1 {
-    font-family: var(--Primary_Font), sans-serif;
     font-size: 5rem;
     margin: 8px 0;
     line-height: 1.1;
+    font-family: var(--Secondary_Font), sans-serif;
     text-transform: uppercase;
     background: linear-gradient(to right, #ffffff 40%, #777777 100%);
     -webkit-background-clip: text;
@@ -306,11 +103,10 @@
     color: var(--Text_Gray);
     font-size: 1.05rem;
     line-height: 1.7;
-    margin-bottom: 0 !important;
-    /* Managed cleanly by parent block containers now */
+    margin-bottom: 0;
 }
 
-/* 🌟 Quick Stats Matrix Configuration 🌟 */
+/* Quick Stats Matrix */
 .HeroQuickStats {
     display: flex;
     gap: 30px;
@@ -325,7 +121,6 @@
     position: relative;
 }
 
-/* Dividing line between the stat nodes */
 .StatNode:not(:last-child)::after {
     content: '';
     position: absolute;
@@ -339,15 +134,8 @@
 .NodeCount {
     font-size: 1.8rem;
     font-weight: 800;
-    font-family: var(--Font1);
     color: #ffffff;
     line-height: 1;
-    transition: color 0.3s ease;
-}
-
-.StatNode:hover .NodeCount {
-    color: var(--Accent_Color);
-    text-shadow: 0 0 10px rgba(255, 51, 51, 0.3);
 }
 
 .NodeTitle {
@@ -356,4 +144,214 @@
     text-transform: uppercase;
     color: var(--Text_Gray);
     letter-spacing: 1px;
+}
+
+/* Action Buttons */
+.HeroButtons {
+    display: flex;
+    gap: 15px;
+}
+
+.BtnPrimary,
+.BtnSecondary {
+    padding: 14px 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.BtnPrimary {
+    background: var(--Accent_Color);
+    border: 2px solid var(--Accent_Color);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(255, 51, 51, 0.35);
+}
+
+.BtnSecondary {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    color: #fff;
+}
+
+/* Right Side Character Section */
+.FirstLine {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    animation: floatAnimation 6s ease-in-out infinite;
+    padding-right: 2rem;
+}
+
+.MainImg {
+    width: 26vw;
+    min-width: 300px;
+    object-fit: contain;
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    filter: drop-shadow(0 0 25px rgba(255, 51, 51, 0.25));
+    position: relative;
+    z-index: 3;
+}
+
+.AncientAuraRing {
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    border: 2px dashed rgba(255, 51, 51, 0.15);
+    border-radius: 50%;
+    z-index: 1;
+    animation: rotateRing 24s linear infinite;
+}
+
+/* 🌟 Fixed Small Floating Stat Widget Styling & Text Spacing */
+.CharacterStatWidget {
+    position: absolute;
+    bottom: 20px;
+    right: -20px;
+    background: rgba(10, 10, 10, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1.2rem;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 220px;
+    z-index: 4;
+    border-left: 3px solid var(--Accent_Color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    box-sizing: border-box;
+}
+
+.WidgetRow {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+}
+
+.WidgetLabel {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--Text_Gray);
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.WidgetValue {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 0.5px;
+    word-spacing: 2px;
+}
+
+.text-red {
+    color: var(--Accent_Color) !important;
+}
+
+.Donghua_Banner {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    opacity: 0.6;
+}
+
+.Donghua_Banner img {
+    filter: invert(100%);
+    width: 40px;
+}
+
+@keyframes floatAnimation {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes rotateRing {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 📱 Mobile & Tablet Responsive Media Queries */
+@media (max-width: 1200px) {
+    .Image_Detail {
+        padding: 2rem 4rem;
+    }
+    .SecondLine h1 {
+        font-size: 4rem;
+    }
+    .MainImg {
+        width: 35vw;
+        min-width: 260px;
+    }
+}
+
+@media (max-width: 900px) {
+    .HeroSection {
+        height: auto;
+        min-height: calc(100vh - 75px);
+        padding: 3rem 0;
+    }
+    .Image_Detail {
+        flex-direction: column;
+        padding: 0 1.5rem;
+        gap: 3rem;
+    }
+    .SecondLine {
+        max-width: 100%;
+        text-align: center;
+    }
+    .LineageWrapper {
+        padding-left: 0;
+        border-left: none;
+        border-bottom: 2px solid rgba(255, 51, 51, 0.2);
+        padding-bottom: 1rem;
+    }
+    .HeroQuickStats {
+        justify-content: center;
+        padding-left: 0;
+    }
+    .HeroButtons {
+        justify-content: center;
+    }
+    .FirstLine {
+        padding-right: 0;
+        width: 100%;
+    }
+    .MainImg {
+        width: 75vw;
+        min-width: 250px;
+    }
+    .AncientAuraRing {
+        width: 300px;
+        height: 300px;
+    }
+    .CharacterStatWidget {
+        right: 10px;
+        bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .SecondLine h1 {
+        font-size: 3rem;
+    }
+    .HeroButtons {
+        flex-direction: column;
+        width: 100%;
+    }
+    .BtnPrimary, .BtnSecondary {
+        width: 100%;
+        text-align: center;
+    }
+    .CharacterStatWidget {
+        display: none;
+    }
 }

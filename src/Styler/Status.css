@@ -1,7 +1,12 @@
 .StatusSection {
     background-color: var(--Secondary_Color);
-    padding: 6rem 8rem 10rem 8rem;
+    padding: 6rem 8rem;
     width: 100%;
+    box-sizing: border-box;
+}
+
+.StatusHeader {
+    margin-bottom: 3.5rem;
 }
 
 .StatusHeader .SectionTitle {
@@ -15,7 +20,6 @@
 .StatusHeader .SectionSubtitle {
     color: var(--Text_Gray);
     font-size: 1.1rem;
-    margin-bottom: 5rem;
 }
 
 /* Timeline Track */
@@ -26,18 +30,21 @@
     display: flex;
     flex-direction: column;
     gap: 4rem;
+    box-sizing: border-box;
 }
 
 .TimelineNode {
     position: relative;
     padding-left: 40px;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 /* Glowing Node Dot indicators */
 .TimelineMarker {
     position: absolute;
     left: -7px;
-    top: 35px; /* Centered with layout block shifts */
+    top: 35px;
     width: 12px;
     height: 12px;
     background: #000;
@@ -67,7 +74,7 @@
     background: var(--Accent_Color);
 }
 
-/* 🌟 Visual Card Box Overhaul */
+/* Visual Card Box */
 .StatusCard {
     display: flex;
     justify-content: space-between;
@@ -77,6 +84,8 @@
     border-radius: 6px;
     overflow: hidden;
     min-height: 180px;
+    width: 100%;
+    box-sizing: border-box;
     transition: border-color 0.3s ease, transform 0.3s ease;
 }
 
@@ -90,6 +99,7 @@
     padding: 2rem;
     flex: 1;
     z-index: 2;
+    box-sizing: border-box;
 }
 
 .TimelineEra {
@@ -113,7 +123,7 @@
     line-height: 1.6;
 }
 
-/* 🌟 Right Image Column Box Styling */
+/* Right Image Column Box Styling */
 .StatusImageWrapper {
     width: 260px;
     min-width: 260px;
@@ -136,7 +146,6 @@
     filter: brightness(100%);
 }
 
-/* Mask to fade graphic seamlessly into dark text field on the left */
 .StatusImgFade {
     position: absolute;
     top: 0;
@@ -146,17 +155,36 @@
     background: linear-gradient(to right, #111111 0%, transparent 40%);
 }
 
-/* Responsive collapse rules for smaller tablets and phones */
+/* Responsive Rules */
+@media (max-width: 1024px) {
+    .StatusSection {
+        padding: 4rem 3rem;
+    }
+}
+
 @media (max-width: 850px) {
+    .StatusSection {
+        padding: 3rem 1.2rem;
+    }
+    .TimelineContainer {
+        margin-left: 10px;
+    }
+    .TimelineNode {
+        padding-left: 25px;
+    }
     .StatusCard {
         flex-direction: column-reverse;
         align-items: flex-start;
     }
     .StatusImageWrapper {
         width: 100%;
+        min-width: 100%;
         height: 160px;
     }
     .StatusImgFade {
         background: linear-gradient(to top, #111111 0%, transparent 50%);
+    }
+    .StatusHeader .SectionTitle {
+        font-size: 2.2rem;
     }
 }

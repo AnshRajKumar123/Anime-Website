@@ -18,7 +18,7 @@ const Hero = () => {
                 <div className="SecondLine">
                     <div className="LineageWrapper">
                         <span className="SubTitle">THE ULTIMATE LEGEND</span>
-                        <h1>WANG LING</h1>
+                        <h1>WANG LIN</h1>
                         <p className="HeroDescription">
                             A comprehensive database tracking the ascension of a ruthless mortal who defied the heavens, 
                             mastered the Dao of Life and Death, and rewrote the rules of the universe.

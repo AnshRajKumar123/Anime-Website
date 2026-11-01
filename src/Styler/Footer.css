@@ -1,0 +1,101 @@
+.FandomFooter {
+    background: #050505;
+    border-top: 1px solid rgba(255, 51, 51, 0.2);
+    padding: 4rem 8rem 2rem 8rem;
+    width: 100%;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+.FooterTopBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.FooterLogoGroup {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+}
+
+.FooterLogoGroup h2 {
+    font-family: var(--Primary_Font);
+    font-size: 1.8rem;
+    background: linear-gradient(to right, #ffffff, var(--Accent_Color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.BottomNavLinks {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.BottomNavLinks a {
+    color: var(--Text_Gray);
+    font-family: var(--Secondary_Font);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.BottomNavLinks a:hover {
+    color: var(--Accent_Color);
+    text-shadow: 0 0 8px rgba(255, 51, 51, 0.4);
+}
+
+.FooterDivider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.05);
+    margin-bottom: 2rem;
+}
+
+.FooterBottomBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: var(--Text_Gray);
+}
+
+.FooterSubText {
+    color: var(--Accent_Color);
+    font-style: italic;
+}
+
+@media (max-width: 1024px) {
+    .FandomFooter {
+        padding: 3rem 3rem 2rem 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .FandomFooter {
+        padding: 2.5rem 1.2rem 1.5rem 1.2rem;
+    }
+    .FooterTopBar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+    .BottomNavLinks {
+        gap: 1.2rem;
+    }
+    .FooterBottomBar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

@@ -2,6 +2,7 @@
     background-color: var(--Secondary_Color);
     padding: 6rem 8rem;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .WeaponsHeader .SectionTitle {
@@ -120,4 +121,19 @@
 
 .WeaponContent {
     padding: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+    .WeaponsSection {
+        padding: 4rem 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .WeaponsSection {
+        padding: 3rem 1.2rem;
+    }
+    .WeaponsHeader .SectionTitle {
+        font-size: 2.2rem;
+    }
 }
